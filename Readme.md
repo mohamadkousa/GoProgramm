@@ -1,6 +1,12 @@
+## Overview of the program
+
+Bank and stock exchange should communicate with each other, and the program can be started using Docker Compose, which allows multiple instances of the bank. Each bank (4 banks) has bank reserves and customers. When a customer deposits money, the bank reserve should increase, and customers are also able to send money from one bank to another. If a bank runs out of bank reserves, it should request assistance. Using the 2-phase commit protocol, a consensus is first reached to decide whether to help. If all three remaining banks agree, the bank in need receives money transactions. If not, the transaction is aborted.
+
+This concerns a university project; a team of two developers worked on this project.
+
 ## Praktikum 2 
 
-Only Google Chrome browser is supported! There are 4 banks, 
+There are 4 banks, 
 one of them is not reporting to the stock exchange in order to save its bank reserve.
 I will later request money from them or send him Money with RPC. 
 
