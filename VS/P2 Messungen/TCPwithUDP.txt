@@ -1,0 +1,9 @@
+Anzahl gesendete Request: 3771
+
+dauer: 21.0331516
+
+Request pro Sekunde: 179.29
+
+
+//die Boerse schickt mit verzögerung(wait) nur ein request alle 1 sekunde
+

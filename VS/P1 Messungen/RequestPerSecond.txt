@@ -1,0 +1,6 @@
+Anzahl empfangener Pakete: 333618
+
+dauer: 10.1014167
+
+Pakete pro Sekunde: 33026.85
+

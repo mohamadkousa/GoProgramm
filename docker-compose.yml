@@ -1,0 +1,88 @@
+version: '3'
+
+services:
+  boerse:
+    hostname: boerse
+    build:
+      context: VS/Boerse
+      dockerfile: Dockerfile
+    ports:
+      - "6543:6543/udp"
+
+  bank:
+    hostname: bank
+    environment:
+      - HOSTNAME=boerse
+      - BANKRESERVE=10000
+      - BROKER_URL=mosquitto
+      - BANKNAME=bank
+    build:
+      context: VS/Bank
+      dockerfile: Dockerfile
+    depends_on:
+      - boerse
+      - mosquitto
+    ports:
+      - "6543:6543/tcp"
+
+  bankdarmstadt:
+    hostname: darmstadt
+    environment:
+      - HOSTNAME=boerse
+      - BANKRESERVE=100000000
+      - BROKER_URL=mosquitto
+      - BANKNAME=darmstadt
+    build:
+      context: VS/Bank
+      dockerfile: Dockerfile
+    depends_on:
+      - boerse
+      - mosquitto
+    ports:
+      - "6544:6543/tcp"
+
+  bankfrankfort:
+    hostname: frankfurt
+    environment:
+      - HOSTNAME=boerse
+      - BANKRESERVE=100000000
+      - BROKER_URL=mosquitto
+      - BANKNAME=frankfurt
+    build:
+      context: VS/Bank
+      dockerfile: Dockerfile
+    depends_on:
+      - boerse
+      - mosquitto
+    ports:
+      - "6545:6543/tcp"
+
+  bankmainz:
+    hostname: mainz
+    environment:
+      - HOSTNAME=boerse
+      - BANKRESERVE=100000000
+      - BROKER_URL=mosquitto
+      - BANKNAME=mainz
+    build:
+      context: VS/Bank
+      dockerfile: Dockerfile
+    depends_on:
+      - boerse
+      - mosquitto
+    ports:
+      - "6546:6543/tcp"
+
+  mosquitto:
+    container_name: mosquitto
+    image: eclipse-mosquitto
+    restart: unless-stopped
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
+
+#    deploy:
+#      replicas: 4
+
+

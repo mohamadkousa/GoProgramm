@@ -1,0 +1,22 @@
+syntax="proto3";
+
+option go_package =".";
+
+
+message Message{
+  string body =1;
+  double howMuch=2;
+}
+message Ok{
+  bool ok=1;
+}
+message Empty {}
+message Uberweisung {
+  double geld=1;
+}
+
+service ChatService {
+  rpc Ping(Empty)                 returns (Empty) {}
+  rpc Uberweissung(Uberweisung)   returns(Ok){}
+  rpc Stonieren(Message)          returns(Ok){}
+}

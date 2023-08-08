@@ -1,0 +1,6 @@
+Anzahl RPC ping: 3409
+
+dauer: 19.9543278
+
+Ping pro Sekunde: 170.84
+

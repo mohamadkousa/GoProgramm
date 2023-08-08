@@ -1,0 +1,4 @@
+Aktien:AAPL Price: 309.86 last time: 2023-04-30 13:43:44
+Aktien:AMZN Price: 193.39 last time: 2023-04-30 13:43:44
+Aktien:MSFT Price: 181.56 last time: 2023-04-30 13:43:44
+Aktien:TSLA Price: 408.15 last time: 2023-04-30 13:43:44
