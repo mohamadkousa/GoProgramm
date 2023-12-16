@@ -2,7 +2,6 @@
 <html>
 <head>
     <title>Aktienkurse</title>
-    <meta http-equiv="refresh" content="10">
     <style>
         table {
             border-collapse: collapse;
@@ -51,34 +50,82 @@
         input[type="submit"]:hover {
             background-color: #3e8e41;
         }
-        nav {
-            background-color: #333;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 40px;
         }
 
-        nav a {
-            float: left;
-            display: block;
-            color: white;
+        header {
             text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
+            padding: 20px;
+            background-color: #4CAF50;
+            color: white;
         }
 
-        nav a:hover {
-            background-color: #ddd;
-            color: black;
+        section {
+            margin-top: 20px;
         }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+        }
+        nav {
+            background-color: #4CAF50; /* Hintergrundfarbe der Navigation */
+            padding: 10px 0; /* Innenabstand oben und unten */
+            text-align: center;
+        }
+
+        /* Stil für die Navigationslinks */
+        nav a {
+            color: white; /* Textfarbe der Links */
+            text-decoration: none; /* Entfernen der Standard-Link-Unterstreichung */
+            padding: 10px 15px; /* Innenabstand links und rechts */
+            border-radius: 5px; /* Runde Ecken für einen schöneren Look */
+            margin: 0 10px; /* Außenabstand zwischen den Links */
+            transition: background-color 0.3s; /* Sanfter Farbübergang beim Hovern über einen Link */
+        }
+
+        /* Stil für die Navigationslinks beim Hovern */
+        nav a:hover {
+            background-color: #555; /* Hintergrundfarbe beim Hovern */
+        }
+
+        /* Stil für die Navigationslinks beim Aktivieren/Selektieren */
+        nav a.active {
+            background-color: #4CAF50; /* Hintergrundfarbe für den aktiven Link */
+        }
+
     </style>
 </head>
 <body>
-<nav>
-    <a href="http://localhost:6543">Home</a>
-    <a href="http://localhost:6543/kunde">Kunde</a>
-    <a href="http://localhost:6543/inventory">inventory</a>
-</nav>
+
+<nav id="navbar"> </nav>
+<script> // JavaScript-Code zum Generieren der Links
+const navBar = document.getElementById('navbar');
+
+const links = [
+    { text: 'Home', href: `http://${window.location.hostname}:${window.location.port}` },
+    { text: 'Kunde', href: `http://${window.location.hostname}:${window.location.port}/kunde` },
+    { text: 'Inventory', href: `http://${window.location.hostname}:${window.location.port}/inventory` }
+    // Füge weitere Links nach Bedarf hinzu
+];
+
+links.forEach(link => {
+    const a = document.createElement('a');
+    a.href = link.href;
+    a.textContent = link.text;
+    navBar.appendChild(a);
+});
+</script>
 <h1>Aktienkurse</h1>
 <table>
     <thead>
@@ -104,5 +151,8 @@
     <input type="number" name="Anzahl" placeholder="Anzahl" />
     <input type="submit" value="Senden"/>
 </form>
+<footer>
+    <p>&copy; 2023 Mohamad Khir Kousa</p>
+</footer>
 </body>
 </html>
